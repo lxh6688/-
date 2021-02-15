@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+import {nanoid} from "nanoid";
 import './index.css'
 
+console.log(nanoid())
+console.log(nanoid())
+console.log(nanoid())
 export default class Header extends Component {
 
   handleKeyUp = (event) => {
