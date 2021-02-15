@@ -12,12 +12,22 @@ export default class App extends Component {
     {id:'003', name: '打代码', done:false},
   ]}
 
+  //addTodo用于添加一个todo，接受的参数是对象
+  addTodo = (todoObj) => {
+    // 获取原todos
+    const {todos} = this.state
+    // 追加一个todo
+    const newTodos = [todoObj,...todos]
+    // 更新状态
+    this.setState({todos:newTodos})
+  }
+
   render() {
     const {todos} = this.state
     return (
       <div className="todo-container">
         <div className="todo-wrap">
-          <Header/>
+          <Header addTodo={this.addTodo}/>
           <List todos={todos}/>
           <Footer/>
         </div>

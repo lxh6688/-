@@ -6,7 +6,7 @@ export default class Header extends Component {
   handleKeyUp = (event) => {
     const {keyCode,target} = event
     if(keyCode !== 13) return
-    console.log(target.value)
+    this.props.addTodo(target.value)
   }
 
   render() {
