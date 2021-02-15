@@ -10,7 +10,13 @@ export default class Header extends Component {
   handleKeyUp = (event) => {
     const {keyCode,target} = event
     if(keyCode !== 13) return
-    this.props.addTodo(target.value)
+    if(target.value.trim() === ''){
+      alert('输入不能为空')
+      return
+    }
+    const todoObj = {id:nanoid(),name:target.value,done:false}
+    this.props.addTodo(todoObj)
+    target.value = ''
   }
 
   render() {
